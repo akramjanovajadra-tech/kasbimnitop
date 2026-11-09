@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+    <title>KASBIMNI TOP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo" onclick="goHome(); return false;">
+        <span class="logo-icon">K</span>
+        <span>KASBIMNI <b>TOP</b></span>
+    </a>
+
+    <nav>
+        <button onclick="goHome()">Bosh sahifa</button>
+        <button onclick="showAbout()">Loyiha haqida</button>
+    </nav>
+</header>
+
+<main>
+
+    <section id="homeSection" class="section active">
+        <div class="hero">
+            <div class="hero-badge">✦ KELAJAGINGIZNI KASHF ETING</div>
+
+            <h1>Qaysi kasb<br>sizga <span>mos?</span></h1>
+
+            <p>
+                Qiziqishlaringiz, qobiliyatlaringiz va shaxsiy
+                xususiyatlaringiz asosida kelajak kasbingizni aniqlang.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="showProfile()">
+                    Kasbimni aniqlash <span>→</span>
+                </button>
+                <button class="secondary-btn" onclick="showAbout()">
+                    Loyiha haqida
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>24</strong>
+                    <span>Test savoli</span>
+                </div>
+                <div>
+                    <strong>28</strong>
+                    <span>Kasb yo‘nalishi</span>
+                </div>
+                <div>
+                    <strong>TOP 5</strong>
+                    <span>Shaxsiy tavsiya</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span>01</span>
+                <h3>O‘zingizni anglang</h3>
+                <p>Qiziqish va kuchli tomonlaringizni aniqlang.</p>
+            </article>
+
+            <article class="feature-card">
+                <span>02</span>
+                <h3>Kelajakni o‘ylang</h3>
+                <p>Avtomatlashtirish xavfi va inson roli hisobga olinadi.</p>
+            </article>
+
+            <article class="feature-card">
+                <span>03</span>
+                <h3>Yo‘nalish toping</h3>
+                <p>Sizga mos kasblar va rivojlanish yo‘lini ko‘ring.</p>
+            </article>
+        </div>
+    </section>
+
+
+    <section id="aboutSection" class="section">
+        <div class="content-card">
+            <div class="section-label">LOYIHA HAQIDA</div>
+            <h2>Kasb tanlash — kelajakni tanlash.</h2>
+
+            <p>
+                KASBIMNI TOP — foydalanuvchilarga o‘z qiziqishlari,
+                qobiliyatlari va shaxsiy xususiyatlariga mos kasblarni
+                aniqlashga yordam beruvchi interaktiv platforma.
+            </p>
+
+            <p>
+                Platformada insonning bevosita muloqoti, ijodkorligi,
+                murakkab qaror qabul qilishi, amaliy mahorati va
+                individual mas'uliyatini talab qiladigan kasblarga
+                alohida e'tibor qaratiladi.
+            </p>
+
+            <p>
+                Natijalar tavsiyaviy xarakterga ega. Hech bir kasb
+                sun'iy intellekt yoki robotlar ta'siridan mutlaqo
+                himoyalangan deb kafolatlanmaydi.
+            </p>
+
+            <button class="primary-btn" onclick="showProfile()">
+                Testni boshlash →
+            </button>
+        </div>
+    </section>
+
+
+    <section id="profileSection" class="section">
+        <div class="content-card profile-card">
+            <div class="section-label">01 / SHAXSIY MA'LUMOTLAR</div>
+
+            <h2>Avval tanishib olaylik!</h2>
+
+            <p>Test natijasini sizga mos shakllantirish uchun ma'lumotlaringizni kiriting.</p>
+
+            <form id="profileForm">
+
+                <label for="firstName">Ismingiz</label>
+                <input id="firstName" type="text" placeholder="Ismingizni kiriting" required maxlength="40">
+
+                <label for="lastName">Familiyangiz</label>
+                <input id="lastName" type="text" placeholder="Familiyangizni kiriting" required maxlength="50">
+
+                <label for="userAge">Yoshingiz</label>
+                <input id="userAge" type="number" min="10" max="100" placeholder="Masalan: 16" required>
+
+                <button class="primary-btn full-btn" type="submit">
+                    Testni boshlash →
+                </button>
+
+            </form>
+        </div>
+    </section>
+
+
+    <section id="quizSection" class="section">
+        <div class="quiz-wrapper">
+
+            <div class="quiz-header">
+                <div>
+                    <div class="section-label">02 / KASBIY YO‘NALISH TESTI</div>
+                    <h2>O‘zingizni kashf eting</h2>
+                </div>
+
+                <div class="question-count" id="questionCount">01 / 24</div>
+            </div>
+
+            <div class="progress-info">
+                <span>Test jarayoni</span>
+                <span id="progressPercent">4%</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-category" id="questionCategory"></div>
+
+                <h3 id="questionText"></h3>
+
+                <div id="optionsContainer" class="options-container"></div>
+
+                <div class="quiz-navigation">
+                    <button id="prevButton" class="secondary-btn" onclick="previousQuestion()">
+                        ← Oldingi
+                    </button>
+
+                    <button id="nextButton" class="primary-btn" onclick="nextQuestion()" disabled>
+                        Keyingi →
+                    </button>
+                </div>
+            </div>
+
+            <p class="quiz-hint">
+                ✦ Sizga mos variant bo‘lmasa, «Boshqa javob»ni tanlang.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section id="resultSection" class="section">
+        <div class="result-heading">
+            <div class="section-label">03 / SHAXSIY TAHLIL</div>
+            <h2>Kelajagingizga <span>bir qadam</span></h2>
+            <p id="resultName"></p>
+        </div>
+
+        <div class="direction-card">
+            <span>ASOSIY YO‘NALISHINGIZ</span>
+            <h3 id="mainDirection"></h3>
+            <p id="directionDescription"></p>
+        </div>
+
+        <div class="content-card">
+            <div class="section-label">SIZNING KUCHLI TOMONLARINGIZ</div>
+            <h3>Qobiliyatlar xaritasi</h3>
+            <div id="strengthResults"></div>
+        </div>
+
+        <div class="career-heading">
+            <div class="section-label">SIZGA MOS KASBLAR</div>
+            <h3>TOP 5 tavsiya</h3>
+            <p>Kasblar sizning javoblaringizga qarab saralandi.</p>
+        </div>
+
+        <div id="careerResults"></div>
+
+        <div class="result-note">
+            <strong>MUHIM ESLATMA</strong>
+            <p>
+                Test natijalari taxminiy tavsiyadir. Kasbning kelajakdagi
+                barqarorligi aniq kafolatlanmaydi. Kasb tanlashda ta'lim,
+                mehnat bozori, shaxsiy qadriyatlar va haqiqiy tajribani
+                ham hisobga oling.
+            </p>
+        </div>
+
+        <div class="result-actions">
+            <button class="primary-btn" onclick="window.print()">
+                Natijani chop etish / PDF
+            </button>
+
+            <button class="secondary-btn" onclick="restartTest()">
+                Testni qayta ishlash
+            </button>
+
+            <button class="secondary-btn" onclick="goHome()">
+                Bosh sahifaga qaytish
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">KASBIMNI TOP</div>
+    <p>Kelajagingizni bugundan rejalashtiring.</p>
+
+    <div class="author">
+        Loyiha muallifi va bajaruvchisi:
+        <strong>Akramjonova Jadra Maratovna</strong>
+    </div>
+
+    <p class="copyright">© 2026 KASBIMNI TOP. Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
